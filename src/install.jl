@@ -137,7 +137,8 @@ function enable_mkl_startup(libmkl_rt)
     if ispath(sysimgpath)
         rm(sysimgpath, recursive=true)
     end
-    force_native_image!()
+    sysimg = get_backup!(debug, "x86-64")
+    copy_system_image(dirname(sysimg), default_sysimg_path(false))
 end
 
 function enable_openblas_startup(libopenblas = "libopenblas")
@@ -155,5 +156,6 @@ function enable_openblas_startup(libopenblas = "libopenblas")
     if ispath(sysimgpath)
         rm(sysimgpath, recursive=true)
     end
-    force_native_image!()
+    sysimg = get_backup!(debug, "x86-64")
+    copy_system_image(dirname(sysimg), default_sysimg_path(false))
 end
