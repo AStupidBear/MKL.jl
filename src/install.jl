@@ -137,7 +137,7 @@ function enable_mkl_startup(libmkl_rt)
     if ispath(sysimgpath)
         rm(sysimgpath, recursive=true)
     end
-    sysimg = PackageCompiler.get_backup!(debug, "x86-64")
+    sysimg = PackageCompiler.get_backup!(false, "x86-64")
     syspath = PackageCompiler.default_sysimg_path(false)
     PackageCompiler.copy_system_image(dirname(sysimg), syspath)
 end
@@ -157,7 +157,7 @@ function enable_openblas_startup(libopenblas = "libopenblas")
     if ispath(sysimgpath)
         rm(sysimgpath, recursive=true)
     end
-    sysimg = PackageCompiler.get_backup!(debug, "x86-64")
+    sysimg = PackageCompiler.get_backup!(false, "x86-64")
     syspath = PackageCompiler.default_sysimg_path(false)
     PackageCompiler.copy_system_image(dirname(sysimg), syspath)
 end
